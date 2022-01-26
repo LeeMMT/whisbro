@@ -339,8 +339,68 @@ span.seperator {
 
 /*Service Grid*/
 
-.service-grid {
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 270px 60px 270px;
+  grid-template-areas:
+    "img1 img2 img3"
+    "img1 img5 img3"
+    "img4 img5 img3";
+  margin: 64px auto;
+}
+
+.service-tile {
   width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.service-tile:nth-child(1) {
+  grid-area: img1;
+  background-image: url("../images/random-tile.jpeg");
+}
+
+.service-tile:nth-child(2) {
+  grid-area: img2;
+  background-image: url("../images/ventilation-tile.jpeg");
+}
+
+.service-tile:nth-child(3) {
+  grid-area: img3;
+  background-image: url("../images/airconditioning-tile.jpeg");
+}
+
+.service-tile:nth-child(4) {
+  grid-area: img4;
+  background-image: url("../images/renewable-tile2.jpeg");
+}
+
+.service-tile:nth-child(5) {
+  grid-area: img5;
+  background-image: url("../images/maintenance-tile.jpeg");
+}
+
+.service-tile a {
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hsla(0, 0%, 0%, 0.5);
+  color: var(--white);
+  font-family: "Jost Med", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  transition: all 0.75s ease;
+}
+
+.service-tile a:hover {
+  background-color: var(--primary-color);
 }
 
 /*Footer*/
@@ -361,6 +421,19 @@ footer {
 
 .footer-grid section {
   padding: 16px 8px;
+}
+
+.footer-grid li {
+  display: list-item;
+}
+
+.footer-grid a {
+  color: var(--white);
+  line-height: 1.5em;
+}
+
+.footer-grid a:hover {
+  color: var(--primary-color);
 }
 
 .designed-by-wrapper {
@@ -420,6 +493,11 @@ footer {
   margin-bottom: 0 !important;
 }
 
+.z-front {
+  position: relative;
+  z-index: 2;
+}
+
 /*Media Queries*/
 
 @media screen and (max-width: 1400px) {
@@ -435,8 +513,30 @@ footer {
   #menu-container {
     display: block;
   }
-}
+  .services-grid {
+    display: flex;
+    flex-direction: column;
+  }
 
+  .service-tile {
+    height: 200px;
+  }
+  .service-tile:nth-child(1) {
+    grid-area: unset;
+  }
+  .service-tile:nth-child(2) {
+    grid-area: unset;
+  }
+  .service-tile:nth-child(3) {
+    grid-area: unset;
+  }
+  .service-tile:nth-child(4) {
+    grid-area: unset;
+  }
+  .service-tile:nth-child(5) {
+    grid-area: unset;
+  }
+}
 /*Fonts*/
 
 @font-face {
