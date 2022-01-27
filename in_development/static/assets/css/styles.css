@@ -8,11 +8,14 @@
 
 :root {
   --bg: #ebebeb;
-  --white: #f7f7f7;
+  --white: #fff;
   --soft-grey: #9e9e9e;
   --black: #292929;
+  --charcaol: #46505e;
   --text: #3d3d3d;
+  -dark-green: #1d7846;
   --primary-color: #01ae50;
+  --primary-highlight: #0bcb61;
   --secondary-color: #0f223d;
 }
 
@@ -24,7 +27,7 @@ body {
 }
 
 body {
-  background-color: var(--bg-color);
+  background-color: var(--white);
   display: flex;
   flex-direction: column;
   font-family: "Jost Reg", Arial, Helvetica, sans-serif;
@@ -51,19 +54,26 @@ h3 {
 
 p {
   line-height: 1.5em;
+  margin-bottom: 8px;
 }
 
 /*Navigation*/
 
 header {
-  position: fixed;
-  top: 0;
   width: 100%;
   height: 60px;
-  background-color: hsla(0, 0%, 0%, 0);
-  /*box-shadow: 0 3px 6px hsla(0, 0%, 0%, 0.15), 0 2px 4px hsla(0, 0%, 0%, 0.12);*/
+  background-color: var(--black);
+  box-shadow: 1px 3px 6px hsla(0, 0%, 0%, 0.15), 4px 5px 4px hsla(0, 0%, 0%, 0.12);
   font-family: "Jost Med", Arial, Helvetica, sans-serif;
+  transition: all 0.5s ease;
   z-index: 2;
+}
+
+header.home {
+  position: absolute;
+  top: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.25) 100%);
+  box-shadow: none;
 }
 
 .nav-container {
@@ -74,6 +84,7 @@ header {
   align-items: center;
   justify-content: space-between;
   font-size: 18px;
+  letter-spacing: 1px;
 }
 
 .desktop-nav {
@@ -158,6 +169,7 @@ a {
   padding-top: 38px;
   border-radius: 4px;
   flex-direction: column;
+  letter-spacing: 0;
   overflow: hidden;
 }
 
@@ -167,10 +179,9 @@ a {
   position: absolute;
   z-index: 2;
   width: 100%;
-  height: 1px;
+  height: 2px;
   background-color: var(--primary-color);
   border: 0;
-  box-shadow: 0 3px 6px hsla(0, 0%, 0%, 0.15), 0 2px 4px hsla(0, 0%, 0%, 0.12);
 }
 
 .dropdown-wrapper:hover ul {
@@ -258,7 +269,7 @@ span.seperator {
 
 .hero {
   width: 100%;
-  height: 100vh;
+  height: calc(100vh + 32px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -273,8 +284,7 @@ span.seperator {
 .hero-inner {
   width: 100%;
   height: 100%;
-  background-color: hsla(0, 0%, 0%, 0.1);
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5046393557422969) 100%);
+  background-color: hsla(0, 0%, 0%, 0.25);
   display: flex;
   align-items: center;
 }
@@ -284,6 +294,10 @@ span.seperator {
   font-size: 32px;
   color: var(--white);
   text-align: left;
+}
+
+.hero-inner h1 {
+  text-shadow: 0 1px 1px hsla(0, 0%, 0%, 0.25);
 }
 
 .hero-inner a {
@@ -311,6 +325,53 @@ span.seperator {
 
 .hero-inner a:nth-of-type(2):hover i {
   background-image: url("../icons/right-arrow-white.svg") !important;
+}
+
+/*Banner*/
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+}
+
+.banner.air-con {
+  background-image: url("../images/air-con/banner.jpeg");
+  background-position: center left;
+}
+
+/*About Us*/
+
+.about-us {
+  position: relative;
+  max-width: 600px;
+  width: max-content;
+  padding: 16px 16px 0 16px;
+  background-color: var(--white);
+  margin-top: -32px;
+  margin-bottom: 64px;
+}
+
+.about-us .small-header {
+  color: var(--primary-color);
+  font-size: 16px;
+  font-family: "Jost Reg", Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+}
+
+.about-us p:nth-child(2) {
+  font-size: 18px;
+  font-family: "Jost Med", Arial, Helvetica, sans-serif;
+}
+
+.about-us h1 {
+  font-size: 32px;
+  font-family: "Jost Semi B", Arial, Helvetica, sans-serif;
+  margin-bottom: 0;
 }
 
 /*Image Slider*/
@@ -365,7 +426,7 @@ span.seperator {
     "img1 img2 img3"
     "img1 img5 img3"
     "img4 img5 img3";
-  margin: 64px auto;
+  margin: 0 auto 64px auto;
 }
 
 .service-tile {
@@ -378,27 +439,27 @@ span.seperator {
 
 .service-tile:nth-child(1) {
   grid-area: img1;
-  background-image: url("../images/random-tile.jpeg");
+  background-image: url("../images/services-grid/random-tile.jpeg");
 }
 
 .service-tile:nth-child(2) {
   grid-area: img2;
-  background-image: url("../images/ventilation-tile.jpeg");
+  background-image: url("../images/services-grid/ventilation-tile.jpeg");
 }
 
 .service-tile:nth-child(3) {
   grid-area: img3;
-  background-image: url("../images/airconditioning-tile.jpeg");
+  background-image: url("../images/services-grid/airconditioning-tile.jpeg");
 }
 
 .service-tile:nth-child(4) {
   grid-area: img4;
-  background-image: url("../images/renewable-tile2.jpeg");
+  background-image: url("../images/services-grid/renewable-tile2.jpeg");
 }
 
 .service-tile:nth-child(5) {
   grid-area: img5;
-  background-image: url("../images/maintenance-tile.jpeg");
+  background-image: url("../images/services-grid/maintenance-tile.jpeg");
 }
 
 .service-tile a {
@@ -421,6 +482,44 @@ span.seperator {
   background-color: var(--primary-color);
 }
 
+/*Service Pages*/
+
+.service-page-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  column-gap: 64px;
+}
+
+.service-page-grid .text-wrapper {
+  padding: 0 16px;
+  margin-bottom: 24px;
+}
+
+.service-page-grid .text-wrapper p:last-of-type {
+  margin-bottom: 0;
+}
+
+.service-page-grid h2 {
+  color: var(--black);
+  font-size: 24px;
+}
+
+.right-col {
+  justify-self: center;
+  width: calc(100% - 64px);
+  height: auto;
+  background-color: var(--charcaol);
+  display: flex;
+  justify-content: center;
+}
+
+.right-col img {
+  align-self: baseline;
+  width: calc(100% + 64px);
+  border-top: solid 4px var(--white);
+  border-bottom: solid 4px var(--white);
+}
+
 /*Footer*/
 
 footer {
@@ -438,7 +537,7 @@ footer {
 }
 
 .footer-grid section {
-  padding: 16px 8px;
+  padding: 16px;
 }
 
 .footer-grid li {
@@ -538,6 +637,10 @@ footer {
   margin-bottom: 0 !important;
 }
 
+.active-link {
+  color: var(--primary-highlight) !important;
+}
+
 .z-front {
   position: relative;
   z-index: 2;
@@ -546,12 +649,16 @@ footer {
 /*Media Queries*/
 
 @media screen and (max-width: 1400px) {
-  .nav-container {
-    padding: 0 8px;
+  .nav-container,
+  .container {
+    padding: 0 16px;
   }
 }
 
 @media screen and (max-width: 600px) {
+  header {
+    position: fixed;
+  }
   .desktop-nav {
     display: none;
   }

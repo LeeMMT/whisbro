@@ -1,7 +1,17 @@
 const mobileMenu = (function () {
+  const header = document.querySelector("header");
   const mobileMenuBtn = document.querySelector("#menu-container");
   const mobileMenu = document.querySelector(".mobile-menu");
   let state = closed;
+
+  const checkScrollPos = () => {
+    const currentScrollPos = window.pageYOffset;
+    if (currentScrollPos > window.innerHeight - 60) {
+      header.classList.add("solid-bg");
+    } else {
+      header.classList.remove("solid-bg");
+    }
+  };
 
   const showMenu = function () {
     document.body.classList.toggle("stop-scrolling");
@@ -27,6 +37,8 @@ const mobileMenu = (function () {
     }
   };
 
+  //Enable checkScrollPos when header should be fixed
+  //window.addEventListener("scroll", checkScrollPos);
   menuAnimation.goToAndStop(4, true);
   menuAnimation.setSpeed(3);
   mobileMenuBtn.addEventListener("click", showMenu);
