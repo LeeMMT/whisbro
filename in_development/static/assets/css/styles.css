@@ -7,13 +7,13 @@
 /*CSS Variables*/
 
 :root {
-  --bg: #ebebeb;
+  --platinum: #ebebeb;
   --white: #fff;
   --soft-grey: #9e9e9e;
   --black: #292929;
   --charcaol: #46505e;
   --text: #3d3d3d;
-  -dark-green: #1d7846;
+  --dark-green: #1d7846;
   --primary-color: #01ae50;
   --primary-highlight: #0bcb61;
   --secondary-color: #0f223d;
@@ -63,7 +63,7 @@ header {
   width: 100%;
   height: 60px;
   background-color: var(--black);
-  box-shadow: 1px 3px 6px hsla(0, 0%, 0%, 0.15), 4px 5px 4px hsla(0, 0%, 0%, 0.12);
+  box-shadow: 0 3px 6px hsla(0, 0%, 0%, 0.15), 0 2px 4px hsla(0, 0%, 0%, 0.12);
   font-family: "Jost Med", Arial, Helvetica, sans-serif;
   transition: all 0.5s ease;
   z-index: 2;
@@ -244,7 +244,7 @@ a {
 .mobile-menu li {
   display: block;
   padding: 8px 0;
-  border-bottom: solid 1px var(--bg);
+  border-bottom: solid 1px var(--platinum);
 }
 
 .mobile-menu li:last-child {
@@ -257,7 +257,7 @@ span.seperator {
   width: 100%;
   height: 1px;
   margin-bottom: 8px;
-  background-color: var(--bg);
+  background-color: var(--platinum);
 }
 
 .mobile-menu a {
@@ -348,12 +348,16 @@ span.seperator {
 
 .about-us {
   position: relative;
-  max-width: 600px;
   width: max-content;
   padding: 16px 16px 0 16px;
   background-color: var(--white);
   margin-top: -32px;
   margin-bottom: 64px;
+}
+
+.home .about-us {
+  max-width: 600px;
+  width: 100%;
 }
 
 .about-us .small-header {
@@ -486,12 +490,15 @@ span.seperator {
 
 .service-page-grid {
   display: grid;
-  grid-template-columns: 1fr 300px;
+  grid-template-columns: minmax(400px, 1fr) minmax(250px, 300px);
   column-gap: 64px;
+  margin-bottom: 64px;
 }
 
 .service-page-grid .text-wrapper {
   padding: 0 16px;
+  background-color: #f3f3f3;
+  box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.06), 0 1px 2px hsla(0, 0%, 0%, 0.12);
   margin-bottom: 24px;
 }
 
@@ -505,19 +512,19 @@ span.seperator {
 }
 
 .right-col {
-  justify-self: center;
-  width: calc(100% - 64px);
+  width: 100%;
   height: auto;
-  background-color: var(--charcaol);
+  padding: 16px 0;
+  background-color: var(--dark-green);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .right-col img {
-  align-self: baseline;
-  width: calc(100% + 64px);
-  border-top: solid 4px var(--white);
-  border-bottom: solid 4px var(--white);
+  width: 100%;
+  border-top: solid 1px var(--white);
+  border-bottom: solid 1px var(--white);
 }
 
 /*Footer*/
@@ -657,7 +664,8 @@ footer {
 
 @media screen and (max-width: 600px) {
   header {
-    position: fixed;
+    position: fixed !important;
+    top: 0 !important;
   }
   .desktop-nav {
     display: none;
