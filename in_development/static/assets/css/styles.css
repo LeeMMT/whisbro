@@ -667,6 +667,10 @@ footer {
     position: fixed !important;
     top: 0 !important;
   }
+  .hero {
+    background-attachment: unset;
+    background-image: url("../images/hero-image-mobile.jpeg");
+  }
   .desktop-nav {
     display: none;
   }
