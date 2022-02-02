@@ -89,7 +89,7 @@ header.home {
 
 .desktop-nav {
   height: 100%;
-  padding-top: calc(22px);
+  padding-top: 17px;
 }
 
 .desktop-nav > ul {
@@ -166,7 +166,7 @@ a {
   left: 0;
   width: max-content;
   height: max-content;
-  padding-top: 38px;
+  padding-top: 43px;
   border-radius: 4px;
   flex-direction: column;
   letter-spacing: 0;
@@ -339,6 +339,16 @@ span.seperator {
   z-index: -1;
 }
 
+.banner.refrigeration {
+  background-image: url("../images/air-con/banner.jpeg");
+  background-position: center left;
+}
+
+.banner.ventilation {
+  background-image: url("../images/ventilation/banner.jpeg");
+  background-position: left left;
+}
+
 .banner.air-con {
   background-image: url("../images/air-con/banner.jpeg");
   background-position: center left;
@@ -490,16 +500,21 @@ span.seperator {
 
 .service-page-grid {
   display: grid;
-  grid-template-columns: minmax(400px, 1fr) minmax(250px, 300px);
+  grid-template-columns: minmax(400px, 800px) minmax(250px, 1fr);
   column-gap: 64px;
   margin-bottom: 64px;
 }
 
 .service-page-grid .text-wrapper {
-  padding: 0 16px;
+  max-width: 800px;
+  padding: 16px;
   background-color: #f3f3f3;
   box-shadow: 0 1px 3px hsla(0, 0%, 0%, 0.06), 0 1px 2px hsla(0, 0%, 0%, 0.12);
   margin-bottom: 24px;
+}
+
+.service-page-grid .text-wrapper:last-of-type {
+  margin-bottom: 0;
 }
 
 .service-page-grid .text-wrapper p:last-of-type {
@@ -508,14 +523,16 @@ span.seperator {
 
 .service-page-grid h2 {
   color: var(--black);
+  font-family: "Jost Med", Arial, Helvetica, sans-serif;
   font-size: 24px;
+  margin-top: 32px;
 }
 
 .right-col {
   width: 100%;
   height: auto;
-  padding: 16px 0;
-  background-color: var(--dark-green);
+  padding: 16px;
+  background-color: #f3f3f3;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -523,8 +540,23 @@ span.seperator {
 
 .right-col img {
   width: 100%;
-  border-top: solid 1px var(--white);
-  border-bottom: solid 1px var(--white);
+  margin-bottom: 16px;
+}
+
+.right-col .flex-row {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.right-col .cta-btn {
+  border-radius: 6px;
+  background-color: var(--secondary-color);
+  color: var(--white);
+}
+
+.right-col .cta-btn:hover {
+  background-color: var(--primary-color);
+  color: var(--black);
 }
 
 /*Footer*/
@@ -623,6 +655,22 @@ footer {
 
 /*Misc*/
 
+.flex-row {
+  display: flex;
+}
+
+.cta-btn {
+  display: inline-block;
+  width: max-content;
+  padding: 6px 8px;
+  text-decoration: none;
+  margin-left: 8px;
+}
+
+.cta-btn:first-of-type {
+  margin-left: 0;
+}
+
 .stop-scrolling {
   overflow: hidden;
 }
@@ -659,6 +707,13 @@ footer {
   .nav-container,
   .container {
     padding: 0 16px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .service-page-grid {
+    grid-template-columns: 1fr;
+    column-gap: 0;
   }
 }
 
