@@ -87,6 +87,10 @@ header.home {
   letter-spacing: 1px;
 }
 
+.main-logo {
+  max-height: 52px;
+}
+
 .desktop-nav {
   height: 100%;
   padding-top: 17px;
@@ -610,6 +614,11 @@ footer {
 
 .footer-grid a:hover {
   color: var(--primary-color);
+}
+
+.footer-grid .main-logo {
+  max-height: unset;
+  max-width: 160px;
 }
 
 .designed-by-wrapper {
